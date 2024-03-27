@@ -22,7 +22,7 @@ class Student {
     public String indexNumber;
     public String email;
     public String address;
-    public List<Integer> grades = new ArrayList<Integer>();
+    public List<Double> grades = new ArrayList<Double>();
 
     public Student(String fname, String lname, String indexNumber, String email, String address) {
         this.fname = fname;
@@ -32,14 +32,14 @@ class Student {
         this.address = address;
     }
 
-    public Student(String fname, String lname, String indexNumber, String email, String address, List<Integer> grades) {
+    public Student(String fname, String lname, String indexNumber, String email, String address, List<Double> grades) {
         this(fname, lname, indexNumber, email, address);
         this.grades = grades;
     }
 
-    private static int getListSum(List<Integer> list) {
+    private static double getListSum(List<Double> list) {
         int sum = 0;
-        for (int number : list)
+        for (double number : list)
             sum += number;
         return sum;
     }
@@ -50,7 +50,7 @@ class Student {
         else if (this.grades.size() > 20)
             throw new IllegalArgumentException("Number of grades cannot exceed 20");
 
-        return Double.valueOf(getListSum(this.grades)) / this.grades.size();
+        return getListSum(this.grades) / this.grades.size();
     }
 
     public void addToGroup(StudentGroup targetGroup) throws IllegalStateException {
