@@ -15,10 +15,14 @@ class StudentGroup {
         this.students.add(student);
     }
 
+    public void removeStudent(Student student) {
+        this.students.remove(student);
+    }
+
     public List<Student> getStudents() { return this.students; };
 
     public void printStudents() {
-       for (Student student : this.students)
+       for (Student student : getStudents())
            System.out.printf("%s %s (%s)\n", student.fname, student.lname, student.indexNumber);
     }
 
@@ -71,7 +75,6 @@ class Student {
     }
 
     public void addToGroup(StudentGroup targetGroup) throws IllegalStateException {
-//        throw new IllegalStateException("The number of students in a group exceeds 15");
         targetGroup.addStudent(this);
     }
 }
@@ -86,5 +89,11 @@ public class Main {
 
         mainGroup.addStudent(kacperek);
         mainGroup.printStudents();
+
+        try {
+            kacperek.addToGroup(mainGroup);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e);
+        }
     }
 }
