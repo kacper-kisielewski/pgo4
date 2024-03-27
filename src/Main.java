@@ -14,6 +14,23 @@ class StudentGroup {
 
         this.students.add(student);
     }
+
+    public List<Student> getStudents() { return this.students; };
+
+    public void printStudents() {
+       for (Student student : this.students)
+           System.out.printf("%s %s (%s)\n", student.fname, student.lname, student.indexNumber);
+    }
+
+    public StudentGroup(String name) {
+        this.name = name;
+    }
+
+    public StudentGroup(String name, List<Student> students) {
+        this(name);
+        for (Student student : students)
+            this.addStudent(student);
+    }
 }
 
 class Student {
@@ -61,8 +78,13 @@ class Student {
 
 public class Main {
     public static void main(String[] args) {
-        List<Integer> kacperekGrades = Arrays.asList(5, 4, 4, 3, 6);
+        StudentGroup mainGroup = new StudentGroup("main group");
+
+        List<Double> kacperekGrades = Arrays.asList(5.0, 4.0, 4.5, 3.5, 6.0);
         Student kacperek = new Student("Kacper", "Kisielewski", "s30670", "s30670@pjwstk.edu.pl", "NA", kacperekGrades);
         System.out.println(kacperek.calculateGradesAverage());
+
+        mainGroup.addStudent(kacperek);
+        mainGroup.printStudents();
     }
 }
