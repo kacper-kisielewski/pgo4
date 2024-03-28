@@ -43,4 +43,16 @@ public class Student {
     public void addToGroup(StudentGroup targetGroup) throws IllegalStateException {
         targetGroup.addStudent(this);
     }
+
+    public void addGrade(double grade) {
+        this.grades.add(grade);
+    }
+
+    public List<Double> getGrades() { return this.grades; }
+
+    public void setGrades(List<Double> grades) {
+        this.grades = new ArrayList<>();
+        for (double grade : grades)
+            this.grades.add(grade);
+    }
 }
