@@ -35,7 +35,9 @@ public class Student {
         else if (this.grades.size() > 20)
             throw new IllegalArgumentException("Number of grades cannot exceed 20");
 
-        return getListSum(this.grades) / this.grades.size();
+        double gradesSum = getListSum(grades);
+        double gradesAverage = gradesSum / this.grades.size();
+        return gradesAverage;
     }
 
     public void addToGroup(StudentGroup targetGroup) throws IllegalStateException {

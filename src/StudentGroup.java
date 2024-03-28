@@ -3,10 +3,10 @@ import java.util.List;
 
 public class StudentGroup {
     public String name;
-    private List<Student> students = new ArrayList<Student>();
+    private List<Student> students = new ArrayList<>();
 
     public void addStudent(Student student) throws IllegalStateException {
-        if (this.students.size() > 15)
+        if (this.students.size() + 1 > 15)
             throw new IllegalArgumentException("Number of students in a group cannot exceed 15");
         else if (this.students.contains(student))
             throw new IllegalArgumentException("Student was already added to the group");
